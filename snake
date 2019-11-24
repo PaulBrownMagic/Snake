@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+logtalk $HOME/Development/Snake/loader.lgt

@@ -15,7 +15,7 @@ try_alt(A, B) :-
          ).
 
 try_browser(B) :-
-    set_prolog_flag(browser, B-bg).
+    set_prolog_flag(browser, B-fg).
 
 open_url :-
     www_open_url('--app=http://localhost:8000/').

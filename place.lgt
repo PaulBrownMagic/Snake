@@ -13,8 +13,9 @@
 
     poss(_).
 
-    retract_fluents([apple_location(_)]).
-    assert_fluents([apple_location(coord(X, Y))]) :-
+    retract_assert([apple_location(_)],
+                   [apple_location(coord(X, Y))]
+                  ) :-
         board::size(S),
         nondet_random::between(1, S, X),
         nondet_random::between(1, S, Y),

@@ -4,7 +4,6 @@
 :- use_module(library(http/http_files), [http_reply_from_files/3]).
 :- use_module(library(http/html_write), [reply_html_page/2]).
 
-
 :- dynamic user:file_search_path/2.
 :- prolog_load_context(directory, Dir),
    assertz(user:file_search_path(snake_web, Dir)).

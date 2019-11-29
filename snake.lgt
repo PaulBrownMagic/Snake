@@ -74,8 +74,13 @@
         snake::head(Location, Sit),
         apple::location(Location, Sit).
 
-    retract_fluents([snake_body(_), snake_head(_)]).
-    assert_fluents([snake_body(NewBody), snake_head(NewHead)]) :-
+    retract_assert([ snake_body(_)
+                   , snake_head(_)
+                   ]
+                   ,
+                   [ snake_body(NewBody)
+                   , snake_head(NewHead)
+                   ]) :-
         snake::holds(head(Head)),
         snake::holds(body_dl(Body)),
         snake::holds(direction(Direction)),
@@ -90,8 +95,13 @@
     poss(Sit) :-
         \+ eat::poss(Sit).
 
-    retract_fluents([snake_body(_), snake_head(_)]).
-    assert_fluents([snake_body(NewBody), snake_head(NewHead)]) :-
+    retract_assert([ snake_body(_)
+                   , snake_head(_)
+                   ]
+                   ,
+                   [ snake_body(NewBody)
+                   , snake_head(NewHead)
+                   ]) :-
         snake::holds(head(Head)),
         snake::holds(body_dl([_|Body]-Hole)),
         snake::holds(direction(Direction)),
@@ -107,8 +117,7 @@
        snake::direction(Direction, Sit),
        ( Direction == left ; Direction == right ).
 
-   retract_fluents([snake_direction(_)]).
-   assert_fluents([snake_direction(up)]).
+   retract_assert([snake_direction(_)], [snake_direction(up)]).
 
 :- end_object.
 
@@ -120,8 +129,7 @@
        snake::direction(Direction, Sit),
        ( Direction == left ; Direction == right ).
 
-   retract_fluents([snake_direction(_)]).
-   assert_fluents([snake_direction(down)]).
+   retract_assert([snake_direction(_)], [snake_direction(down)]).
 
 :- end_object.
 
@@ -133,8 +141,7 @@
        snake::direction(Direction, Sit),
        ( Direction == up ; Direction == down ).
 
-   retract_fluents([snake_direction(_)]).
-   assert_fluents([snake_direction(left)]).
+   retract_assert([snake_direction(_)], [snake_direction(left)]).
 
 :- end_object.
 
@@ -146,7 +153,6 @@
        snake::direction(Direction, Sit),
        ( Direction == up ; Direction == down ).
 
-   retract_fluents([snake_direction(_)]).
-   assert_fluents([snake_direction(right)]).
+   retract_assert([snake_direction(_)], [snake_direction(right)]).
 
 :- end_object.

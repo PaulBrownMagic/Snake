@@ -51,13 +51,13 @@
     poss(Sit) :-
         game::is_gameover(Sit).
 
-    retract_fluents([ snake_head(_)
-                    , snake_body(_)
-                    , snake_direction(_)
-                    , apple_location(_)
-                    ]).
-
-    assert_fluents([ snake_direction(up)
+    retract_assert([ snake_head(_)
+                   , snake_body(_)
+                   , snake_direction(_)
+                   , apple_location(_)
+                   ]
+                   ,
+                   [ snake_direction(up)
                    , snake_head(coord(HS, HS))
                    , snake_body(DL-DL)
                    ]) :-
